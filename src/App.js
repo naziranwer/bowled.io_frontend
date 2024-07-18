@@ -1,25 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginForm from "./components/LoginForm";
-import SignupForm from "./components/SignupForm";
-import Home from "./components/Home"; 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import React, { useContext } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import PrivateRoute from "./components/PrivateRoute";
+import { AuthContext } from "./context/AuthContext";
 
-function App() {
+const App = () => {
+  const { token } = useContext(AuthContext);
+
   return (
-    <Router>
-      <Routes>
-        
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SignupForm />} />
-        
-        <Route path="/home" element={<Home />} />
-        
-        <Route path="/" element={<LoginForm />} /> 
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<PrivateRoute component={HomePage} />} />
+      <Route
+        path="/login"
+        element={token ? <Navigate to="/" /> : <LoginPage />}
+      />
+      <Route
+        path="/signup"
+        element={token ? <Navigate to="/" /> : <SignupPage />}
+      />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
-}
+};
 
 export default App;
