@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Taskify
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Taskify is a task management application that allows users to manage their tasks effectively. It supports user authentication, task creation, updating, deletion, drag-and-drop functionality for tasks, and search functionality with debouncing for efficient search operations.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User Authentication:** Secure login and logout functionality using JWT.
+- **Task Management:**
+  - Create new tasks with a title, description, due date, and status.
+  - Update existing tasks.
+  - Delete tasks with confirmation.
+- **Task List Organization:**
+  - Tasks are organized into three categories: To-Do, In Progress, and Completed.
+  - Drag and drop tasks from one category to another.
+- **Search Functionality:**
+  - Search for tasks by title or description.
+  - Debouncing implemented for efficient search operations.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/naziranwer/bowled.io_frontend.git
+   cd bowled.io_frontend
+   ```
+2. npm install
+3. Set up environment variables:
+   ```Create a .env file in the root directory and add the following environment variables:
+   REACT_APP_API_URL=<your-api-url>
+   ```
+4. Start the development server: npm start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+### Authentication
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Login:**
 
-### `npm run build`
+  1. Navigate to the login page.
+  2. Enter your username and password.
+  3. Click the "Login" button to authenticate.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Logout:**
+  1. Click the "Logout" button in the header.
+  2. You will be redirected to the login page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Task Management
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Create Task:**
 
-### `npm run eject`
+  1. Click the "Create New Task" button on the Home Page.
+  2. A modal form will appear where you can enter task details:
+     - Title
+     - Description
+     - Due Date
+     - Status (To-Do, In Progress, Completed)
+  3. Click the "Create" button to save the new task.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Update Task:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  1. Locate the task card you want to update.
+  2. Click the edit icon on the task card.
+  3. A modal form will appear with the current task details.
+  4. Make the necessary changes and click the "Update" button to save the changes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Delete Task:**
+  1. Locate the task card you want to delete.
+  2. Click the delete icon on the task card.
+  3. A confirmation prompt will appear.
+  4. Click "OK" to confirm the deletion, or "Cancel" to abort.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Task List Organization
 
-## Learn More
+- **To-Do, In Progress, Completed:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - Tasks are organized into these three categories.
+  - Tasks are displayed under each category based on their status.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Drag and Drop:**
+  1. You can drag and drop tasks from one category to another.
+  2. Drag a task card by clicking and holding the task.
+  3. Drop it into the desired category column.
+  4. The task's status will be updated automatically.
 
-### Code Splitting
+### Search Functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Search Bar:**
 
-### Analyzing the Bundle Size
+  1. A search bar is available to filter tasks by title or description.
+  2. Enter your search query in the search bar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Debouncing:**
+  1. The search functionality uses debouncing to delay the search by 2 seconds for efficient operations.
+  2. This reduces the number of search requests sent while typing.
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project is licensed under the MIT License -
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Feel free to open issues or submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
 
-### Deployment
+To contribute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork the repository.
+2. Create a new branch:
 
-### `npm run build` fails to minify
+   ```bash
+   git checkout -b feature/YourFeature
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```
+
+3. Make your changes and commit them: git commit -am 'Add new feature'
+4. Push to the branch: git push origin feature/YourFeature
+5. Create a new Pull Request.
+
+## Contact
+
+For any inquiries, please contact : anwernazir674@gmail.com
