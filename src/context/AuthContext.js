@@ -23,18 +23,28 @@ export const AuthProvider = ({ children }) => {
       setToken(res.data.token);
     } catch (error) {
       console.error("Login failed:", error);
+      if (error.response && error.response.data) {
+        throw new Error(error.response.data.msg || "Login failed");
+      } else {
+        throw new Error("Server error");
+      }
     }
   };
 
-  const signup = async (email, password) => {
+  const signup = async (name, email, password) => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/signup`,
-        { email, password }
+        { name, email, password }
       );
       setToken(res.data.token);
     } catch (error) {
       console.error("Signup failed:", error);
+      if (error.response && error.response.data) {
+        throw new Error(error.response.data.msg || "Signup failed");
+      } else {
+        throw new Error("Server error");
+      }
     }
   };
 

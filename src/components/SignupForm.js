@@ -71,13 +71,20 @@ const SignupForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const { signup } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup({ name, email, password });
-    navigate("/");
+    try {
+      await signup(name, email, password);
+      setMessage("Signup successful! Redirecting to homepage...");
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+      setMessage("Signup failed: " + err.response.data.msg);
+    }
   };
 
   return (
@@ -146,6 +153,7 @@ const SignupForm = () => {
           <Link href="/login" variant="body2" color="#DEBB85">
             {"Already have an account? Sign in"}
           </Link>
+          {message && <Typography>{message}</Typography>}
         </Box>
       </Box>
     </Paper>
